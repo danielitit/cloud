@@ -1,0 +1,9 @@
+resources:
+  - name: cluster-1
+    type: container.v1.cluster
+    properties: 
+      name: cluster-1
+      initialNodeCount: 2
+      nodeConfig:
+        machineType: n1-standard-1
+        diskSizeGb: 100GB

@@ -1,0 +1,19 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: helloworld-deployments
+spec:
+  selector:
+    matchLabels:
+      app: helloworld
+  replicas: 2 
+  template: 
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: helloworld
+        image: drhelius/helloworld-python-microservice
+        ports:
+        - containerPort: 8080
