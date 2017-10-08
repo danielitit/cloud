@@ -28,13 +28,39 @@ This file is downloaded directly from the [Google Developers Console](https://co
 
 4. Clicking "Create" will download your credentials.
 
-## Performance Testing Tools
+## Creating Kubernetes cluster
+
+1. terraform init inicjalizacja backendu cos tam cos tam
+
+```
+
+$ terraform init
+
+```
+
+2. terraform plan cos tam cos tam
+
+```
+
+$ terraform plan
+
+```
+
+3. terraform apply cos tam cos tam
+
+```
+
+$ terraform apply
+
+```
+
+## Performance Testing & High Availability & Distaster Recovery
 
 To measure web application performance, load stress capacity and verify service scalability I would like to propose following tools:
 
 ### Basic Tools
 
-1. ab - Apache HTTP server benchmarking tool. Using ab tools we can check how many requests per second our http server is capable of serving.
+1. [ab](http://httpd.apache.org/docs/current/programs/ab.html) - Apache HTTP server benchmarking tool. Using ab tools we can check how many requests per second our http server is capable of serving.
 
 Example of usage:
 
@@ -50,3 +76,22 @@ $ ab -k -n 50000 -c 5 http://$URL/
   Number of multiple requests to perform at a time. Default is one request at a time.
 
 ```
+
+2. Simple load generator command
+
+```
+
+$ while true; do wget -q -O- http://$URL; done
+
+```
+
+### Advanced Tools
+
+1. [Apache JMeter](http://jmeter.apache.org/) - "pure Java application designed to load test functional behavior and measure performance."
+
+2. 
+
+
+### Bonus HA&DR tool
+
+1. [kube-monkey](https://github.com/asobti/kube-monkey) - "It randomly deletes Kubernetes pods in the cluster encouraging and validating the development of failure-resilient services."
