@@ -28,6 +28,19 @@ This file is downloaded directly from the [Google Developers Console](https://co
 
 4. Clicking "Create" will download your credentials.
 
+5. After downloading credential file, you have to put it to terraform script directory and configure the the google cloud provider in the terraform script.
+
+```
+
+// Configure the Google Cloud provider
+provider "google" {
+  credentials = "${file("$credential_filename")}"
+  project     = "my-gce-project"
+  region      = "us-central1"
+}
+
+```
+
 ## Creating Kubernetes cluster
 
 1. terraform init inicjalizacja backendu cos tam cos tam
@@ -89,7 +102,7 @@ $ while true; do wget -q -O- http://$URL; done
 
 1. [Apache JMeter](http://jmeter.apache.org/) - "pure Java application designed to load test functional behavior and measure performance."
 
-2. 
+2. [Taurus](https://github.com/Blazemeter/taurus) - "Hides the complexity of performance and functional tests with an automation-friendly convenience wrapper. Taurus relies on JMeter, Gatling, Locust.io, Grinder and Selenium WebDriver as its underlying tools. "
 
 
 ### Bonus HA&DR tool
