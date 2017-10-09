@@ -28,7 +28,7 @@ This file is downloaded directly from the [Google Developers Console](https://co
 
 4. Clicking "Create" will download your credentials.
 
-5. After downloading credential file, you have to put it to terraform script directory and configure the the google cloud provider in the terraform script.
+5. After downloading credential file, you have to put it to terraform script directory and configure the the google cloud provider in the terraform script file. Terraform script file you will find in infrastructure directory.
 
 ```
 
@@ -43,7 +43,7 @@ provider "google" {
 
 ## Creating Kubernetes cluster
 
-1. terraform init inicjalizacja backendu cos tam cos tam
+1. Before we will be able to use terraform, we have to initialize a working directory. Go to the infrastructure directory and execute:
 
 ```
 
@@ -51,7 +51,7 @@ $ terraform init
 
 ```
 
-2. terraform plan cos tam cos tam
+2. After initialization, we have to create execution plan, to do so execute below command:
 
 ```
 
@@ -59,11 +59,37 @@ $ terraform plan
 
 ```
 
-3. terraform apply cos tam cos tam
+3. Finally we can create Kubernetes cluster:
 
 ```
 
 $ terraform apply
+
+```
+
+## Creating containers
+
+1. Create PODs
+
+```
+
+kubectl create -f containers/helloworld.yaml
+
+```
+
+2. Create autoscaling configuration
+
+```
+
+kubectl create -f containers/helloworld-hpa.yaml
+
+```
+
+3. Expose HelloWorld service using Kubernetes LoadBalancer
+
+```
+
+kubectl create -f containers/helloworld-svc.yaml
 
 ```
 
